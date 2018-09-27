@@ -8,7 +8,7 @@ public class CallBack {
         return this.status;
     }
 
-    public void setStatus(String name) {
-        this.status = name;
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
