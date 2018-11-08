@@ -59,8 +59,4 @@ public class Authorization extends Thread {
             System.out.println(e.getMessage());
         }
     }
-
-
-
-
 }
