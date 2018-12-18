@@ -1,109 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateAccountActivity">
+    tools:context=".CreateAccountActivity"
+    android:background="@color/mainBackground">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Button
+        android:id="@+id/btn_back_LogIn"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/header_text"
 
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="55dp"
-            android:text="Логин" />
+        android:background="@drawable/back1" />
 
-        <EditText
-            android:id="@+id/field_create_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="50dp"
-            android:layout_marginLeft="49dp"
-            android:layout_marginTop="75dp"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
+    <TextView
+        android:id="@+id/header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="163dp"
-            android:text="Мыло" />
+        android:layout_alignParentTop="true"
 
-        <EditText
-            android:id="@+id/field_create_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView8"
-            android:layout_marginLeft="50dp"
-            android:ems="10"
-            android:inputType="textEmailAddress" />
+        android:layout_toEndOf = "@+id/btn_back_LogIn"
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="270dp"
-            android:layout_marginLeft="50dp"
-            android:text="Пароль" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
 
-        <EditText
-            android:id="@+id/field_create_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView9"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="300dp"
-            android:layout_marginLeft="50dp"
+        android:gravity="center"
+
+        android:text="Создание аккаунта"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:textStyle="bold" />
+    <!--app:fontFamily="cursive"-->
+
+    <EditText
+        android:id="@+id/field_create_login"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/field_create_email"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:ems="10"
+        android:hint="Логин"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray" />
 
 
-            android:ems="10"
-            android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/field_create_email"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
 
-        <Button
-            android:id="@+id/btn_create_account"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="370dp"
-            android:layout_marginLeft="200dp"
-            android:text="Создать" />
 
-        <Button
-            android:id="@+id/btn_back_LogIn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="370dp"
-            android:layout_marginLeft="70dp"
-            android:text="Назад"
-            android:onClick="onClickBackToLogIn"/>
+        android:layout_above="@+id/field_create_password"
+        android:layout_centerHorizontal="true"
 
-    </RelativeLayout>
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:textColor="@color/gray"
+        android:ems="10"
+        android:hint="Email"
+        android:textSize="16sp"
+        android:textColorHint="@color/gray"
+        android:inputType="textEmailAddress" />
+
+
+    <EditText
+        android:id="@+id/field_create_password"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+
+        android:layout_above="@+id/btn_create_account"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+
+        android:textColor="@color/gray"
+        android:ems="10"
+        android:hint="Пароль"
+        android:textSize="16sp"
+        android:textColorHint="@color/gray"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btn_create_account"
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+
+
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+
+        android:background="@drawable/button"
+
+        android:layout_marginBottom="95dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="27dp"
+
+        android:text="Создать"
+        android:textSize="16sp"
+        android:textColor="@color/mainBackground"
+        />
+
+
+
+
+</RelativeLayout>

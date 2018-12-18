@@ -14,6 +14,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        System.err.println();
         // Получаем ViewPager и устанавливаем в него адаптер
         ViewPager viewPager = findViewById(R.id.viewPagerMenu);
         viewPager.setAdapter(new MenuFragmentPagerAdapter(getSupportFragmentManager(), MenuActivity.this));
@@ -21,7 +22,13 @@ public class MenuActivity extends AppCompatActivity {
         // Передаём ViewPager в TabLayout
         TabLayout tabLayout = findViewById(R.id.tabLayoutMenu);
         tabLayout.setupWithViewPager(viewPager);
+
     }
+
+    public void myFinish() {
+        finish();
+    }
+
 }
 
 

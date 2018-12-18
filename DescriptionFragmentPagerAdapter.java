@@ -16,10 +16,14 @@ public class DescriptionFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 2;
     private String tabTitles[] = new String[]{"Нужные продукты", "Описание"};
     private Context context;
+    private int id;
+    private String str;
 
-    DescriptionFragmentPagerAdapter(FragmentManager fm, Context context) {
+    DescriptionFragmentPagerAdapter(FragmentManager fm, Context context, int id, String str) {
         super(fm);
         this.context = context;
+        this.id = id;
+        this.str = str;
     }
 
     @Override
@@ -29,7 +33,7 @@ public class DescriptionFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragmentsDescriptionRecipe.newInstance(position + 1); //
+        return PageFragmentsDescriptionRecipe.newInstance(position + 1, id, str); //
     }
 
     @Override

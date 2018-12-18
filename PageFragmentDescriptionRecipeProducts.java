@@ -1,72 +1,66 @@
 package com.example.lewan.myapplication.descriptionRecipe;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.lewan.myapplication.R;
+import com.example.lewan.myapplication.State;
+import com.example.lewan.myapplication.menu.PageFragmentMenuGetUserRecipe;
 
-public class PageFragmentDescriptionRecipeProducts extends BaseAdapter {
+import java.util.List;
 
+public class PageFragmentDescriptionRecipeProducts extends ArrayAdapter<State> {
+
+    private List<State> states;
     private Context mContext;
-    private final String[] listProduct;
-   // private final int[] gridViewImageId;
 
-    public PageFragmentDescriptionRecipeProducts(Context context, String[] listProduct) {
+    PageFragmentDescriptionRecipeProducts(Context context, int resource, List<State> states) {
+        super(context, resource, states);
+        this.states = states;
         mContext = context;
-        this.listProduct = listProduct;
-        //this.gridViewString = gridViewString;
+    }
+
+    private static class ViewHolder {
+        private TextView textProduct;
+        private TextView textCount;
+        private TextView textType;
     }
 
     @Override
-    public int getCount() {
-        return listProduct.length;
-    }
-
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View convertView, ViewGroup parent) {
-        View listViewRow;
+    @NonNull
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View view;
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null) {
 
-            //gridViewAndroid = new View(mContext);
-            listViewRow = inflater.inflate(R.layout.fragment_menu_select_product_and_search_recipe_row2, null);
-            TextView textViewAndroid = (TextView) listViewRow.findViewById(R.id.textProduct);
-            textViewAndroid.setText(listProduct[i]);
-
-            CheckBox checkBox = (CheckBox) listViewRow.findViewById(R.id.checkedProduct);
-            checkBox.setChecked(false);
-            checkBox.setId(++i);
-
-            checkBox.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View arg0) {
-                    System.out.println(arg0.getId() + " ////");
-                }
-            });
-
+            view = inflater.inflate(R.layout.fragment_description_recipe_products_row, null);
+            PageFragmentDescriptionRecipeProducts.ViewHolder viewHolder = new PageFragmentDescriptionRecipeProducts.ViewHolder();
+            viewHolder.textProduct = (TextView) view.findViewById(R.id.nameProduct);
+            viewHolder.textCount = (TextView) view.findViewById(R.id.countProduct);
+            viewHolder.textType = (TextView) view.findViewById(R.id.measureProduct);
+            view.setTag(viewHolder);
 
         } else {
-            listViewRow = (View) convertView;
+            view = (View) convertView;
         }
 
-        return listViewRow;
+        PageFragmentDescriptionRecipeProducts.ViewHolder holder = (PageFragmentDescriptionRecipeProducts.ViewHolder) view.getTag();
+        holder.textProduct.setText(states.get(position).getNameProduct());
+        holder.textCount.setText(states.get(position).getCountProduct());
+        holder.textType.setText(states.get(position).getTypeProduct());
+
+
+        return view;
     }
 
 
